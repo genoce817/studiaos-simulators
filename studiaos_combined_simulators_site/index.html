@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudiaOS Simulators</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="mini-nav">
+    <button id="processBtn" class="active" onclick="showSimulator('process')">Process Management</button>
+    <button id="memoryBtn" onclick="showSimulator('memory')">Memory Management</button>
+  </nav>
+
+  <main>
+    <iframe id="processFrame" src="process/index.html" title="Process Management Simulator"></iframe>
+    <iframe id="memoryFrame" class="hidden" src="memory/index.html" title="Memory Management Simulator"></iframe>
+  </main>
+
+  <script>
+    function showSimulator(type) {
+      const processFrame = document.getElementById('processFrame');
+      const memoryFrame = document.getElementById('memoryFrame');
+      const processBtn = document.getElementById('processBtn');
+      const memoryBtn = document.getElementById('memoryBtn');
+
+      processFrame.classList.toggle('hidden', type !== 'process');
+      memoryFrame.classList.toggle('hidden', type !== 'memory');
+      processBtn.classList.toggle('active', type === 'process');
+      memoryBtn.classList.toggle('active', type === 'memory');
+    }
+  </script>
+</body>
+</html>
